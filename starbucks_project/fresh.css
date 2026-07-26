@@ -1,0 +1,398 @@
+/* Header
+1. Wrap the whole thing (header) 
+2. Have flexboxes that go inside it
+- div - header-container1 which holds the left side
+- div - header-container2 which holds the right side
+
+*/
+
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing:border-box;
+
+
+}
+
+body {
+    
+    width: 100%;          /* Fills the screen on mobile phones */
+}
+
+
+
+/* so I can see the containers */
+
+/* vars and universal conditions */
+
+:root {
+
+    --container-height-header: 100%;
+    --main-container-header: 9vh;
+
+    /* colors */
+
+    /* section1 "it's a great day for coffee" =card1 */
+
+    --card1-bgc: #31462f;
+    --maincard-bgc: #016242;
+
+    /* buttons */
+
+    --white-bc: white;
+    --green-bc:#016242;
+    --green-bch:#054f35; 
+    --colorGreenAccent: #00754A; 
+    /* new hover?  */
+        
+
+
+}
+
+
+
+button {
+    border-radius:1em;
+    padding: 0.5em;
+}
+
+button:hover {
+
+    cursor: pointer; 
+}
+
+
+
+header {
+
+    border: 2px solid black;
+}
+
+.header-container1 {
+        border: 4px solid grey;
+
+        background-color:lightblue;
+
+}
+
+.header-container2 {
+        border: 4px solid rgb(161, 13, 154);
+        background-color:violet;
+
+}
+
+.findstore{
+    border:2px solid darkolivegreen;
+
+}
+
+/* Actual header set up */
+
+/* See how it changes between this having 100% vs 9vh (and the children containers header1,2 having 100% and vice versa) can change with variables above */
+
+header {
+    display: flex;
+    flex-direction:row;
+    height:var(--main-container-header);
+}
+
+.header-container1 {
+    display:flex;
+    flex-direction: row;
+  align-items: center;    
+  height: var( --container-height-header);           
+  
+    
+}
+
+
+.logo-photo, .logo-link {
+    width:8%;
+    height:auto;  
+    aspect-ratio: 1; 
+    object-fit: contain; 
+   
+}
+
+.header-container2{
+    display:flex;
+    flex-direction:row;
+    padding-left:10px; padding-right:10px;
+    align-items: center;    /* centering vertically */
+      height:  var(--container-height-header); 
+    gap: 1rem;
+    white-space: nowrap;
+    margin-left:auto;  /* Pushing the box to the right */
+
+
+
+}
+
+
+.findstore{
+    display:flex;
+    flex-direction:row;
+    padding-left:2%; padding-right:2%;
+
+}
+
+.join {
+  margin-right: 5rem;
+   background-color: black;
+    color: white;
+
+}
+
+.signin {
+    background-color: white;
+    color: black;
+}
+
+/* main */
+
+
+/* grid */
+
+
+
+/* .card{
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "i tb";
+}
+
+.rcard{
+
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+} */
+
+
+/* .main-cards {
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas: 
+
+    "pic1 tb1"
+    "tb2 pic2"
+    "pic3 tb3"
+    "tb4 pic4"
+    "pic5 tb5";
+
+    
+}
+
+.pic1{grid-area:pic1;}
+.pic2{grid-area:pic2;}
+.pic3{grid-area:pic3;}
+.pic4{grid-area:pic4;}
+.pic5{grid-area:pic5;}
+.tb1{grid-area:tb1;}
+.tb2{grid-area:tb2;}
+.tb3{grid-area:tb3;}
+.tb4{grid-area:tb4;}
+.tb5{grid-area:tb5;} */
+
+
+
+
+/* section1 COLORS for layout*/
+
+/* This will help with images resizing automatically when I do the different media queries */
+
+/* .pic{
+  width:50%;
+    height: auto;
+    /* display: block;  */
+
+
+/* .tb {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    width:50%;
+    height: auto;
+
+    background-color: var(--green-bc);
+}  */
+
+/* position of all cards */
+
+/* next steps create a grid, note there is a background for the images on wider screens, set a standard width for each */
+/* .card {
+
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items: center;
+
+
+}
+
+.rcard {
+
+    display:flex;
+    flex-direction:row-reverse;
+
+}
+
+
+.card1 {
+
+    border: 2px solid palevioletred;
+
+}
+
+/* building */
+
+
+.main-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Clean vertical spacing between rows */
+    width: 100%;
+}
+
+.card1{ 
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    text-align:center;
+    gap: 1rem;
+    padding: 2em;
+    background-color: var(--card1-bgc);
+} 
+
+
+
+.card {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    background-color: #1e3932; 
+    width: 100%;
+}
+
+.card.rcard {
+    flex-direction: row-reverse;
+}
+
+.pic {
+    width: 50%;
+    height: auto;
+}
+
+.pic img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.tb {
+    display:flex;
+    flex-direction: column;
+    width: 50%; 
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    text-align:center;
+    font-size:4em;
+
+    row-gap: .5em;
+}
+
+
+h3 {
+    color:white;
+}
+
+.card1-btn {
+background-color: var(--card1-bgc);
+color: white;
+border: .25em solid white;
+
+}
+
+.white-button, .green-button {
+    border: .25em solid white;
+    font-size: .75em;
+    
+}
+
+.card1-btn:hover {
+background-color: var(--colorGreenAccent); 
+
+
+}
+
+ .menu-checkbox   {
+       
+            border: 2px solid aquamarine;
+
+    } 
+    
+    /* main section cards */
+.card {
+    background-color: var(--maincard-bgc);
+    color: white; 
+
+}
+
+/* button colors */
+
+.white-button {
+    background-color: var(--white-bc);
+    color: var(--green-bc)
+
+
+}
+
+.green-button {
+    background-color: var(--green-bc);
+    color: var(--white-bc)
+
+}
+
+/* Media queries */
+
+
+/* Small phone */
+@media screen and (max-width: 320px)  {
+
+    .menu-checkbox {
+        display:none;
+    }
+    
+    .hamburger-btn    {
+        /* Must turn it into a block element to use margin-left */
+            display:flex;
+            margin-left:auto;
+            border: 2px solid aquamarine;
+
+    }
+    
+    h3 {
+        color:pink;
+    }
+
+    img, .card {
+        width:100%;
+        height:auto;
+    }
+
+
+    
+}
+
+
+
+
